@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { filter, groupBy, isEmpty, map } from 'lodash';
 import TodoTable from 'components/TodoTable';
 import GroupedTable from 'components/GroupedTable';
-import searching from 'utils/searching';
+import searching from 'utils/searching.tsx';
 
 function AllTodo({
   index,

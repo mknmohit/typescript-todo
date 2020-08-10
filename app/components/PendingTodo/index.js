@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { groupBy, isEmpty, filter } from 'lodash';
 import TodoTable from 'components/TodoTable';
 import GroupedTable from 'components/GroupedTable';
-import searching from 'utils/searching';
+import searching from 'utils/searching.tsx';
 
 function PendingTodo({
   index,
