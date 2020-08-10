@@ -28,6 +28,11 @@ module.exports = options => ({
         },
       },
       {
+        test: /\.tsx?$/, // Transform all .ts and .tsx files
+        exclude: /node_modules/,
+        loader: 'ts-loader',
+      },
+      {
         // Preprocess our own .css files
         // This is the place to add your own loaders (e.g. sass/less etc.)
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
@@ -117,7 +122,7 @@ module.exports = options => ({
   ]),
   resolve: {
     modules: ['node_modules', 'app'],
-    extensions: ['.js', '.jsx', '.react.js'],
+    extensions: ['.js', '.jsx', '.react.js', '.ts', '.tsx'],
     mainFields: ['browser', 'jsnext:main', 'main'],
   },
   devtool: options.devtool,
