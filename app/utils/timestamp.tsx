@@ -1,6 +1,8 @@
 import { isEmpty } from 'lodash';
 
-export default date => {
+type Date = string | number
+
+export default (date: Date): string => {
   const timestamp = !isEmpty(date) ? new Date(date) : new Date();
   const day = timestamp.getDate();
   const month = timestamp.getMonth();

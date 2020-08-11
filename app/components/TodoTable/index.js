@@ -13,7 +13,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import RenderTableRow from 'components/RenderTableRow';
-import { stableSort, getComparator } from 'utils/sorting';
+import { stableSort, getComparator } from 'utils/sorting.tsx';
 import Styled from './style';
 
 function TodoTable({ todoData, handldeTodoActions, searchKeyword }) {
