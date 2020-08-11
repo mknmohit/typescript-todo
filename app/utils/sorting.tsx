@@ -1,4 +1,4 @@
-import { Todo } from '../containers/App/types';
+import { Todo } from 'containers/App/types';
 
 type ComparatorFunc = (a: number | Todo, b: number | Todo) => number
 
