@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Styled from './style';
 
 function Search({ searchKeyword, onSearchChange, onClearSearch }) {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleSearchChange = e => {
     const {
@@ -17,7 +17,9 @@ function Search({ searchKeyword, onSearchChange, onClearSearch }) {
 
   const onClear = () => {
     onClearSearch();
-    inputRef.current.focus();
+    if (null !== inputRef.current) {
+      inputRef.current.focus();
+    }
   };
 
   const renderSearchIcon = () => (

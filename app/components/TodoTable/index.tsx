@@ -13,12 +13,15 @@ import {
   Typography,
 } from '@material-ui/core';
 import RenderTableRow from 'components/RenderTableRow';
-import { stableSort, getComparator } from 'utils/sorting.tsx';
+import { stableSort, getComparator } from 'utils/sorting';
+import { Todo } from 'containers/App/types';
 import Styled from './style';
 
+type Order = 'asc' | 'desc';
+
 function TodoTable({ todoData, handldeTodoActions, searchKeyword }) {
-  const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('id');
+  const [order, setOrder] = useState<Order>('asc');
+  const [orderBy, setOrderBy] = useState<keyof Todo>('id');
 
   const headCells = [
     { id: 'title', label: 'Summary' },

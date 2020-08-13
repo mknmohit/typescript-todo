@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { groupBy, isEmpty, filter } from 'lodash';
 import TodoTable from 'components/TodoTable';
 import GroupedTable from 'components/GroupedTable';
-import searching from 'utils/searching.tsx';
+import searching from 'utils/searching';
 
-function PendingTodo({
+function CompletedTodo({
   index,
   activeTab,
   todoData,
@@ -15,13 +15,13 @@ function PendingTodo({
 }) {
   const generateTodo = todo => {
     const { currentState } = todo;
-    if (currentState === 'pending' || currentState === 'completing') {
+    if (currentState === 'completed') {
       return todo;
     }
     return null;
   };
 
-  const getPendigTodos = () => {
+  const getCompletedTodos = () => {
     if (!isEmpty(searchKeyword)) {
       return filter(todoData, item => {
         const isSearchingMatched = searching(item, searchKeyword);
@@ -36,7 +36,7 @@ function PendingTodo({
   };
 
   const renderTable = () => {
-    const todos = getPendigTodos();
+    const todos = getCompletedTodos();
 
     if (!isEmpty(groupByKey) && !isEmpty(todos)) {
       const groupedTodos = groupBy(todos, groupByKey);
@@ -65,7 +65,7 @@ function PendingTodo({
   );
 }
 
-PendingTodo.propTypes = {
+CompletedTodo.propTypes = {
   index: PropTypes.number,
   activeTab: PropTypes.number,
   todoData: PropTypes.array,
@@ -74,4 +74,4 @@ PendingTodo.propTypes = {
   groupByKey: PropTypes.string,
 };
 
-export default PendingTodo;
+export default CompletedTodo;
