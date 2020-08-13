@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { filter, groupBy, isEmpty, map } from 'lodash';
 import TodoTable from 'components/TodoTable';
 import GroupedTable from 'components/GroupedTable';
-import searching from 'utils/searching.tsx';
+import searching from 'utils/searching';
+import { Todo } from 'containers/App/types';
+
 
 function AllTodo({
   index,
@@ -13,7 +15,7 @@ function AllTodo({
   searchKeyword,
   groupByKey,
 }) {
-  const generateTodo = todo => {
+  const generateTodo = (todo: Todo) => {
     const { currentState } = todo;
     if (currentState === 'completed' || currentState === 'completing') {
       return {
