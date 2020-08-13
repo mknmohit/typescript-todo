@@ -1,6 +1,9 @@
 import { replace } from 'lodash';
+import { Todo } from 'containers/App/types';
 
-export default (data, searchKeyword) => {
+type Return = number | boolean
+
+export default (data: Todo, searchKeyword: string): Return => {
   const { title, description } = data;
   const string = replace(searchKeyword, /[' ']/g, '|');
   const pattern = new RegExp(string, 'i');

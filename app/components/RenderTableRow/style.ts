@@ -10,7 +10,7 @@ const Row = styled(TableRow)`
   }
 `;
 
-const Cell = styled(TableCell)`
+const Cell = styled(TableCell)<{ strikeout: boolean }>`
   cursor: pointer;
 
   ${props =>
