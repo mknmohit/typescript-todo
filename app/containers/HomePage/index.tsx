@@ -13,6 +13,7 @@ import TaskModal from 'components/TaskModal';
 import TodoTabs from 'components/TodoTabs';
 import Search from 'components/Search';
 import GroupByDropdown from 'components/GroupByDropdown';
+import { Todo } from 'containers/App/types';
 import Styled from './style';
 
 export default function HomePage() {
@@ -20,10 +21,11 @@ export default function HomePage() {
   const [action, setAction] = useState('add');
   const [viewId, setViewId] = useState();
   const [searchKeyword, setSearchKeyword] = useState('');
-  const [todoData, setTodoData] = useState([]);
+  const [todoData, setTodoData] = useState<Todo[]>([]);
   const [groupByKey, setGroupByKey] = useState('');
+
   useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem('todos'));
+    const todos = JSON.parse(localStorage.getItem('todos') || '[]');
     if (!isEmpty(todos)) {
       setTodoData(todos);
     }

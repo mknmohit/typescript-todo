@@ -1,5 +1,5 @@
 import { replace } from 'lodash';
-import { Todo } from '../containers/App/types';
+import { Todo } from 'containers/App/types';
 
 type Return = number | boolean
 
