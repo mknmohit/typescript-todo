@@ -36,7 +36,7 @@ import configureStore from './configureStore';
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
-const MOUNT_NODE = document.getElementById('app');
+const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 
 const theme = createMuiTheme({
   palette: {

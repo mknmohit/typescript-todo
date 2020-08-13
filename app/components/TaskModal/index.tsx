@@ -15,12 +15,16 @@ import {
   Tooltip,
   IconButton,
 } from '@material-ui/core';
+import { TransitionProps } from '@material-ui/core/transitions';
 import EditIcon from '@material-ui/icons/Edit';
 import getTimestamp from 'utils/timestamp';
 import { find, isEmpty, trim } from 'lodash';
 import Styled from './style';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & { children?: React.ReactElement<any, any> },
+  ref: React.Ref<unknown>,
+) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
